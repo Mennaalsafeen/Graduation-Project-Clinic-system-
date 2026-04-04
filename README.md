@@ -1,4 +1,4 @@
-# Clinic Appointment Management System
+# Dental Clinic Appointment Management System
 
 **Course Name:** Graduation Project  
 **Instructors:** Raed Fefel, Khalil Al Halabi  
@@ -26,16 +26,16 @@
 ---
 
 ## Project Overview
-The Clinic Appointment Management System is a web-based application designed to help patients book appointments with doctors easily and help clinic staff manage schedules efficiently. The system improves appointment organization, reduces waiting time, and provides a better experience for both patients and clinic employees.
+The Dental Clinic Appointment Management System is a web-based application designed to help patients book dental appointments easily and help clinic staff manage schedules efficiently. The system improves appointment organization, reduces waiting time, and provides a better experience for both patients and dental clinic employees.
 
 ## Problem Statement
-Currently, many clinics rely on manual or phone-based appointment booking, which may lead to scheduling conflicts, missed appointments, and inefficient time management. This system aims to solve these issues by providing a centralized and easy-to-use appointment management platform.
+Currently, many dental clinics rely on manual or phone-based appointment booking, which may lead to scheduling conflicts, missed appointments, and inefficient time management. This system aims to solve these issues by providing a centralized and easy-to-use appointment management platform.
 
 ## Project Objectives
 The main objectives of this project are:
-- To allow patients to book appointments online.
+- To allow patients to book dental appointments online.
 - To help clinic staff manage and organize schedules.
-- To enable doctors to view and manage their appointments.
+- To enable dentists to view and manage their appointments.
 - To improve the overall efficiency of the clinic workflow.
 
 ## Project Scope
@@ -52,8 +52,8 @@ The main objectives of this project are:
 
 ## Users / Roles
 The system includes the following user roles:
-- **Admin:** Manages users, appointments, and system settings.
-- **Doctor:** Views and manages assigned appointments.
+- **Admin/Receptionist:** Manages users, appointments, and system settings.
+- **Dentist:** Views and manages assigned appointments.
 - **Patient:** Registers, books appointments, and views appointment history.
 
 ## Functional Requirements
@@ -61,8 +61,8 @@ The system includes the following user roles:
 - The system shall allow patients to book appointments.
 - The system shall allow users to view their appointments.
 - The system shall allow users to update or cancel appointments.
-- The system shall allow doctors to manage their schedules.
-- The system shall allow admins to manage users and appointments.
+- The system shall allow dentists to manage their schedules.
+- The system shall allow admins/receptionists to manage users and appointments.
 
 ## Non-Functional Requirements
 - The system should be user-friendly and easy to navigate.
@@ -81,7 +81,7 @@ The system includes the following user roles:
 | Weam Shahin | Testing / QA | @username5 |
 
 ## GitHub Repository
-Repository link: [Clinic Appointment Management System](https://github.com/taimaalsafeen/GraduationProject)
+Repository link: [Dental Clinic Appointment Management System](https://github.com/taimaalsafeen/GraduationProject)
 
 ## Proposed Technologies
 - ASP.NET Core MVC
@@ -96,7 +96,7 @@ The system is expected to provide the following features:
 - Appointment cancellation
 - Appointment history
 - Admin dashboard
-- Doctor schedule management
+- Dentist schedule management
 - Notifications
 
 ## Documentation

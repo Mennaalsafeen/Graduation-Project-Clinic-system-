@@ -26,7 +26,7 @@ Manual and phone-based booking lead to:
 * Poor patient experience due to waiting times.
 
 ### 🎯 Project Objectives
-1. **Online Booking:** 24/7 appointment scheduling for patients.
+1. **Online Booking:** 24/7 appointment scheduling for patients
 2. **Efficiency:** Organized dashboard for clinic staff.
 3. **Visibility:** Personalized schedules for dentists.
 4. **Workflow:** Overall optimization of clinic operations.

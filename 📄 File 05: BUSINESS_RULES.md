@@ -1,37 +1,59 @@
-# 📄 File 05: BUSINESS_RULES.md
+# 📁 File 05: Business Rules Implementation (05_BUSINESS_RULES.md)
 
 ## 1. Introduction
-This document defines the core logic and constraints governing the **Dental Clinic Appointment Management System**. These rules ensure operational consistency, financial integrity, and medical privacy. While this documentation is in English, all rules must be implemented within the **Arabic RTL (Right-to-Left)** user interface.
+This document establishes the core operational logic, financial integrity boundaries, and medical privacy rules governing the Dental Clinic Appointment Management System. 
+* Architectural Mandate (Slide 13 Compliance): To ensure clean architecture, all business rules defined below must be encapsulated as validation methods within the Service Layer (`AppointmentService` class) returning a boolean state (bool). No business validation logic shall reside inside the Web Controllers.
+* UI Constraint: All backend rules must seamlessly interface with the localized Arabic RTL presentation views.
 
-## 2. Appointment & Scheduling Rules
-*   **A. Operating Hours & Shift Logic:** 
-    *   The clinic operates from **09:00 AM** to **08:00 PM**.
-    *   **Continuous Service:** There is no total clinic shutdown for breaks. Instead, a shift-based system is implemented where doctors rotate breaks, ensuring at least one doctor is always available to attend to patients.
-*   **B. Flexible Appointment Duration:** The duration of each appointment is not fixed. It is manually determined and entered by the **Receptionist** at the time of booking, based on the specific procedure type.
-*   **C. Conflict Prevention:** The system logic must prevent overlapping appointments for the same doctor and ensure that room/chair capacity is respected during shifts.
-*   **D. Smart Cancellation Policy:** 
-    *   Patients can cancel via the portal if the start time is **> 24 hours** away.
-    *   If **< 24 hours** remains, patients must contact the Receptionist for manual cancellation.
-    *   **No Penalties:** There are no financial penalties or fines for cancellations regardless of the timing.
+## 2. Core Appointment & Scheduling Rules (Service Layer Methods)
 
-## 3. Financial & Billing Rules
-*   **A. Invoice Generation:** An invoice is automatically generated once an appointment status is marked as "In-Progress" or "Completed".
-*   **B. Data Integrity:** Once an invoice is marked as **"Paid"**, it cannot be deleted to ensure financial transparency.
-*   **C. Refunds:** Only the **Admin** can process a refund. This action triggers a mandatory entry in the **AuditLogs**.
-*   **D. Debt Tracking:** The system automatically flags "Completed" appointments with outstanding balances for the Admin’s review.
+### Rule 1: No Patient Double-Booking
+* Logic: The system must block any transaction attempting to book an appointment for a patient who already has an existing active reservation on the same day with any doctor.
+* C# Target: bool IsPatientAvailable(int patientId, DateTime targetDate)
 
-## 4. Clinical & Data Privacy Rules
-*   **A. Restricted Access:** Detailed medical diagnoses and the **Visual Dental Chart** are strictly viewable only by **Doctors** and **Admins**.
-*   **B. Receptionist Privacy:** Staff can view scheduling and billing info but are restricted from viewing private medical charts or clinical notes.
-*   **C. Clinical Mapping:** All procedures must be linked to a specific tooth number (1-32) on the interactive Arabic SVG map.
+### Rule 2: No Doctor Time-Slot Conflict (Overlapping Prevention)
+* Logic: A doctor cannot be assigned to two overlapping patient intervals. The system layer must evaluate that the StartTime and EndTime of a new appointment do not intersect with any confirmed slots for the specified DoctorId.
+* C# Target: bool IsDoctorAvailable(int doctorId, DateTime start, DateTime end)
 
-## 5. Security & Access Rules (RBAC)
-*   **A. Mandatory 2FA:** Two-Factor Authentication is required for **Admin** and **Senior Doctor** roles due to the sensitivity of data.
-*   **B. Session Timeout:** Users are automatically logged out after **30 minutes** of inactivity to protect data on shared clinic computers.
-*   **C. Audit Trail:** Every sensitive transaction (e.g., modifying a medical record or changing a service price) is logged with a User ID and Timestamp.
+### Rule 3: Booking Within Doctor Operational Availability
+* Logic: Appointments can only be saved if the requested window falls entirely within the active shift duration stored in the DoctorAvailabilities schema (Clinic bounds: 09:00 AM to 08:00 PM). The system operates on a rotating shift logic to ensure continuous service without full clinic lockdowns.
+* C# Target: bool IsWithinDoctorShifts(int doctorId, DateTime start, DateTime end)
 
-## 6. Inventory & System Alerts
-*   **A. Dual Notification System:** When medical supplies fall below the **MinimumThreshold**:
-    1.  A real-time alert is displayed on the Admin's **Dashboard**.
-    2.  An automated **Email Notification** is sent immediately to the Admin's registered email.
-*   **B. E-Business Intelligence:** The system generates productivity reports comparing revenue vs. patient volume per doctor.
+### Rule 4: Smart Cancellation Window (24-Hour Rule)
+* Logic: * Self-service cancellation returns true if the delta between DateTime.Now and the appointment StartTime is strictly greater than 24 hours.
+  * If the delta is less than 24 hours, self-service is revoked (false), forcing a manual operational override via the Receptionist workflow. No financial penalties are evaluated.
+* C# Target: bool CanPatientSelfCancel(DateTime appointmentStart)
+
+---
+
+## 3. Financial & Billing Integrity Rules
+
+### Rule 5: Immutable Paid Transactions
+* Logic: Once an Invoice status transitions to "Paid", hard-deletion triggers are permanently blocked at the database pipeline level to ensure total audit transparency.
+* C# Target: bool CanModifyInvoice(int invoiceId)
+
+### Rule 6: Admin-Exclusive Refund Boundary
+* Logic: Refund operations return false unless the evaluating context identity holds the explicit Admin role contract. Executing a refund automatically commits an interceptor record to the AuditLogs.
+
+### Rule 7: Debt Flagging Automation
+* Logic: Upon marking an appointment status as "Completed", if PaidAmount < TotalAmount, the system core automatically streams the record to the administrative Outstanding Balances ledger.
+
+---
+
+## 4. Clinical Mapping & Data Isolation Rules
+
+### Rule 8: Medical Diagnosis Data Isolation (Privacy Contract)
+* Logic: Detailed medical charts, historical clinical notes, and the DentalCharts models are encrypted/isolated from front-desk operational scopes. Endpoint evaluation blocks read access if the active role identity is a Receptionist.
+* C# Target: bool EnforceClinicalPrivacy(string userRole)
+
+### Rule 9: Structural Clinical Mapping
+* Logic: Any treatment ledger insertion inside the DentalCharts module must target a validated structural tooth identifier mapped strictly within the bounds of 1 to 32.
+
+---
+
+## 5. Security & System Intelligence Controls
+
+### Rule 10: Enforced Session Security
+* Logic: The system infrastructure drops authentication context states and enforces an auto-logout sequence upon detecting exactly 30 minutes of client inactivity on shared clinical workstation boundaries.
+* ### Rule 11: Dual Material Stock Warnings (Inventory Alert)
+* Logic: If an inventory deduction causes a material's Quantity to fall below its defined MinimumThreshold, the system concurrently executes a real-time dashboard alert push and fires an automated background notification email to the system administrator.

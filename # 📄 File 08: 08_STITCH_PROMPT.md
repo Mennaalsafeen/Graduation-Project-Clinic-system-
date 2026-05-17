@@ -1,58 +1,46 @@
-# File 08: 08_STITCH_PROMPT.md
+# 📁 File 08: Google Stitch UI Generation Prompt (08_STITCH_PROMPT.md)
 
-> **ONLY for Google Stitch — generates all 18 UI pages with Premium Clinical Light DNA.**
-
-## 1. Project Identity
-- **Project Name:** Dental Clinic Appointment Management System
-- **Core Goal:** Digitalize clinic workflows with a high-end, clean Arabic interface (E-Business Integration).
-- **Branding:** Apply this exact project name as the main professional logo across all headers.
-
-## 2. Design DNA & Visual Identity (Premium Medical Minimalist)
-- **Concept:** Swiss Medical UI, Ultra-Clean, High Trust, and Modern Hygiene.
-- **Visual Style:** Flat modern design with deep contrast, generous whitespace, and crisp execution. No heavy dark backgrounds.
-- **Color Palette:**
-    - **Base Background:** Crisp Medical White (#FFFFFF) and Ultra-Light Cool Gray (#F8FAFC) for a sanitized, professional feel.
-    - **Primary Typography & Headers:** Deep Royal Indigo (#1E1B4B) for high corporate authority and trust.
-    - **Accent/Action Color:** Vibrant Ocean Mint / Tech Turquoise (#0D9488) for buttons, active states, and interactive alerts.
-- **Components:**
-    - **Precision Edges:** Sharp or micro-rounded corners (4px radius max) to convey absolute medical and technical precision.
-    - **Shadows:** Invisible or extremely soft, clean micro-shadows.
-- **Responsiveness:** Full Mobile/Tablet/Desktop support (Fluid Grid).
-- **Language:** Strict RTL (Arabic) as the primary interface.
-
-## 3. Project Scope (Exactly 18 Pages)
-
-### A. Public Area (5 Pages)
-1. **Landing Page:** Elite Medical Hero section, "Dental Clinic Appointment Management System" branding, clear service grids, and an elegant Ocean Mint "Book Appointment" CTA.
-2. **Login:** Minimalist high-security login card with 2FA placeholder.
-3. **Register:** Organized step-by-step patient intake form (National ID, Phone, Name).
-4. **Services:** High-fidelity catalog displaying treatments (Orthodontics, Surgery) with pricing.
-5. **Contact Us:** Clean clinic details panel with map integration.
-
-### B. Patient Portal (4 Pages)
-6. **Patient Dashboard:** Clean grid showcasing upcoming appointments and digitized health notifications.
-7. **Booking Wizard:** High-efficiency, fast tabbed system for instant scheduling.
-8. **My Visits:** Pristine medical timeline showing past treatments and clear digital invoices.
-9. **Feedback:** Premium star-rating and professional comment module (E-Business Core).
-
-### C. Doctor Portal (3 Pages)
-10. **Doctor Dashboard:** Dense, high-readability workspace with today's patient overview.
-11. **Work Schedule:** High-precision calendar view for shift and queue management.
-12. **Clinical Hub:** Advanced electronic health record (EHR) featuring a **Crisp Line-Art SVG Dental Chart (Teeth 1-32)**.
-
-### D. Admin & Operations (6 Pages)
-13. **Admin Dashboard:** High-end control center packed with **Clean, Multi-Colored Animated Charts** (Mint, Indigo, Sky Blue trends).
-14. **Staff Management:** Corporate-style table UI for managing profiles and permissions.
-15. **Inventory:** Real-time dental supply tracker with striking Mint and Coral alert badges.
-16. **Financials:** Institutional-grade tables for revenue tracking, invoices, and debts.
-17. **Audit Trail:** Highly readable security logging view for system transparency.
-18. **Receptionist Flow:** Real-time clinic occupancy dashboard and lightning-fast check-in interface.
-
-## 4. Technical Instructions for Stitch
-- **Framework:** Bootstrap 5 (Customized for clean spacing and micro-radii).
-- **RTL Integrity:** Flawless Right-to-Left alignment for the Arabic language.
-- **UX Goal:** The interface must feel like an elite, lightning-fast enterprise application for a modern dental clinic.
+## 1. Antigravity Prompt (Stitch Execution Directive)
+> ⚠️ CRITICAL ARCHITECTURAL BOUNDARY: This file has ONE destination: Google Stitch. It is configured strictly for visual interface generation (HTML/CSS layout mockup) and contains zero backend logic. 
+> Action Required: Paste this entire prompt into Google Stitch to generate the 18-page layout infrastructure. Once rendering finishes, COPY THE STITCH PROJECT ID and store it for File 09.
 
 ---
-> **⚠️ MISTAKE PREVENTION:** This file is for **Google Stitch** only. Do NOT send to Antigravity yet. 
-> **👉 ACTION:** After Stitch generates the pages, **COPY THE PROJECT ID** for File 09.
+
+## 2. Visual DNA & Identity Specifications (Premium Medical Minimalist)
+* Design Concept: Swiss Medical UI, Ultra-Clean, High-Trust, and Clinical Hygiene.
+* Branding Integrity: Render the official corporate title: "Dental Clinic Appointment Management System" as the uniform master brand logo across all header view areas.
+* Color Architecture:
+  * Base Background Canvas: Crisp Medical White (#FFFFFF) and Ultra-Light Cool Gray (#F8FAFC) to evoke a sanitized, modern clinical space.
+  * Primary Typography & Brand Headers: Deep Royal Indigo (#1E1B4B) for corporate authority, weight, and clinical trust.
+  * Accent / Interactive Action Color: Vibrant Ocean Mint / Tech Turquoise (#0D9488) applied exclusively to buttons, focus states, tabs, and active interface components.
+* Component Metrics: Micro-rounded corners (4px maximum borders) to represent technical and medical cutting-edge precision. Soft, barely visible clean drop shadows. 
+* RTL Integration: Native Right-to-Left (RTL) interface mapping optimized for Arabic typography layout structures.
+
+---
+
+## 3. Strict 18-Page Project Scope Catalog
+
+### Area A: Public View Infrastructure (Exactly 5 Pages)
+1. Landing Page: Premium medical hero division with Ocean Mint "Book Appointment" CTA, and clear treatment grids.
+2. Login Portal: Sleek, secure credential card containing standard inputs and a 2FA prompt placeholder.
+3. Register Page: Structured multi-step intake container collecting Patient Name, National ID, and Contact parameters.
+4. Services Menu: High-fidelity presentation index categorizing treatments (e.g., Orthodontics, Surgery) matched with base price tags.
+5. Contact Grid: Clean information panel detailing clinic physical locations, working hours, and interactive map anchors.
+
+### Area B: Patient Self-Service Portal (Exactly 4 Pages)
+6. Patient Dashboard: Clean workspace matrix highlighting active appointment status and automated post-care alerts.
+7. Booking Wizard: High-performance single-page tabbed workflow for frictionless time-slot reservation.
+8. My Visits Timeline: Chronological treatment ledger tracking past doctor check-ins and hosting downloadable invoice files.
+9. Feedback Hub: Star-rating components and text-area containers allowing patients to submit quality metrics.
+
+### Area C: Clinical Doctor Portal (Exactly 3 Pages)
+10. Doctor Dashboard: Dynamic high-readability overview visualizing daily patient volume trends via mock Chart.js widgets.
+11. Work Schedule: Unified calendar/queue tracker for sorting personal working shifts and chronological patient queues.
+12. Clinical Hub (EHR): Medical dashboard containing interactive line-art SVG dental jaw maps identifying adult teeth (1–32).
+13. ### Area D: Administration & Operations Core (Exactly 6 Pages)
+13. Admin Master Dashboard: Centralized corporate analytics hub loaded with clean, multi-colored simulated data charts (Mint, Indigo, Sky Blue).
+14. Staff & Roles Directory: Dense enterprise-grade data table managing clinic employee records, shift setups, and access level parameters.
+15. Receptionist Operational Flow: Real-time clinic occupancy stream, check-in components, and quick-override tools for walk-in scheduling.
+16. Inventory Ledger: Material tracking matrix with automated alert tags colorized in contrasting Mint and Coral warning badges.
+17. Financial Balance Sheet: Institutional tables listing revenue tracking streams, unpaid balances, and comprehensive cyclical statistics.
+18. Security Audit Trail: Read-only historical data table detailing administrative mutations linked to simulated timestamp sequences.
